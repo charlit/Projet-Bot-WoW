@@ -119,8 +119,17 @@ def fight():
             time.sleep(0.2)
         if not target:
             print("[INFO] Cible éliminée, recherche d'une nouvelle cible...")
+            #loot()
             pyautogui.press("tab")
             time.sleep(2) 
+
+def loot():
+    print("[INFO] Looting...")
+    activate_window()
+    screen_width, screen_height = pyautogui.size()
+    center_x, center_y = screen_width // 2, screen_height // 2
+    pyautogui.click(x=center_x, y=center_y, button='right')
+    time.sleep(1)  # Pause pour le loot
 
 while True:
     zone = get_window_position()
